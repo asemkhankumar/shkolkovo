@@ -1,0 +1,63 @@
+{% extends "layout/specialhtml.twig" %}
+{% block content %}
+    {# Последние статьи #}
+    <div class="content-block">
+        <div id="first-content-block-title" class="content-block-title">
+            <a href="{{ Url.site('publications') }}">{{ "The latest news"|i18n }}</a>
+        </div>
+        {% for item in publications %}
+            <div class="article-block">
+                <div class="article-title">{{ item.title }}</div>
+                <div class="article-date">{{ Date.ru_date(item.date, 'd.m.Y') }}</div>
+                <div class="article-announce">
+                    <p>{{ item.desc|striptags }}</p>
+                </div>
+
+                <a class="article-link" href="{{ Url.site('publications/view/'~item.id) }}"></a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="content-block-line"></div>
+
+    {# Экспертное мнение #}
+    <div class="content-block">
+        <div class="content-block-title">
+            <a href="{{ Url.site('expert') }}">{{"Expert opinion"|i18n}}</a>
+        </div>
+
+        {% for item in expert_opinions %}
+            <div class="article-block">
+                <div class="article-title">{{ item.title|raw }}</div>
+                <div class="article-date">{{ Date.ru_date(item.date, 'd.m.Y') }}</div>
+                <div class="article-announce">
+                    <p>{{ item.description|raw|striptags }}</p>
+                </div>
+
+                <a class="article-link" href="{{ Url.site('expert/view/'~item.id) }}"></a>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="content-block-line"></div>
+
+    {# Брифинги #}
+    <div class="content-block">
+        <div class="content-block-title">
+            <a href="{{ Url.site('briefings') }}">{{ "Briefings"|i18n }}</a>
+        </div>
+
+        {% for briefing in briefings %}
+            <div class="article-block">
+                <div class="article-title">{{ briefing.title }}</div>
+                <div class="article-date">{{ Date.ru_date(briefing.date, 'd.m.Y') }}</div>
+                <div class="article-announce">
+                    <p>{{ briefing.desc|raw|striptags }}</p>
+                </div>
+
+                <a class="article-link" href="{{ Url.site('briefings/view/'~briefing.id) }}"></a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "layout/html.twig" %}
+{% block extrastyles %}
+    <style>
+        section{
+            background-color: #faf9f5;
+        }
+        footer .whole-footer{
+            margin: 0!important;
+        }
+        form{
+            margin: 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="wrap">
+        <form method="post" action="{{ Url.site('auth/enter') }}" style="margin-top: 138px; width: 800px; text-align: right;">
+            <input type="hidden" name="token_auth" value="{{ _token }}">
+            <div class="modal-header">
+                {#<a href="{{ Url.site(return) }}" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>#}
+                <h4 class="form-signin-heading">{{ "Enter login information"|i18n }}</h4>
+            </div>
+            <div class="modal-body reg_form">
+                <div>
+                    {% if errors.username is defined %}
+                        <div class="alert">{{ errors.username }}</div>
+                    {% endif %}
+                    <label for="username">{{ "E-mail"|i18n }}</label>
+                    <input type="text" name="username" class="input-block-level" value="" id ="username" required="required">
+                </div>
+                <div>
+                    <label for="password">{{ "Password"|i18n }}</label>
+                    <input type="password" name="password" class="input-block-level" id="password" required>
+                </div>
+                {% if captcha %}
+                    <img src="{{Url.media('/captcha/default')}}" width="150" height="50" alt="Captcha" class="captcha_old"/>
+                    <input type="text" name="captcha" required style="margin: 0; width: 147px; height: 42px; font-size:35px" autocomplete="off">
+                    <a onclick="reload()" style="cursor: pointer;"><img src="{{Url.media('media/theme/refresh.png')}}" width="16px" height="16px"></a>
+                    {% if errors.captcha is defined %}
+                        <div class="alert">{{ errors.captcha }}</div>
+                    {% endif %}
+                    <script type="text/javascript">
+                        function reload(){
+                            var id=Math.floor(Math.random()*1000000);
+                            $("img.captcha_old").attr("src","{{Url.media('/captcha/default?id=')}}"+id);
+                        }
+                    </script>
+                {% endif %}
+                <a href="{{ Url.site('auth/reminder') }}" class="font-eleven">{{ "Forgot Password?"|i18n }}</a>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-large btn-primary" type="submit">{{ "Do Login"|i18n }}</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

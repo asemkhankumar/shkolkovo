@@ -1,0 +1,283 @@
+{% extends "layout/html.twig" %}
+
+{% block extrastyles %}
+{% endblock %}
+{% block extrascripts %}
+    <script type='text/javascript' >
+        $(function() {
+            $(".Vwidget  .VjCarouselLite").jCarouselLite({
+                btnNext: ".Vwidget .down",
+                btnPrev: ".Vwidget .up",
+                vertical: true,
+                visible: 3,
+                auto: 5000,
+                speed: 300,
+                circular: true
+            });
+            $(".Vwidget2  .VjCarouselLite2").jCarouselLite({
+                btnNext: ".Vwidget2 .down",
+                btnPrev: ".Vwidget2 .up",
+                vertical: true,
+                visible: 3,
+                auto: 4000,
+                speed: 300,
+                circular: true
+            });
+        });
+    </script>
+{% endblock extrascripts %}
+
+{% block content %}
+    <div class="top-background">
+        <div class="wrap abs" style="    position: relative;">
+            <div class="obertka-top">
+                <div class="content-top">
+                    <div class="bg-top abs">
+                        <div class="korobka"></div>
+                        {%  if slogans %}
+                            {% for item in slogans %}
+                                <p class="sanspro abs text{{ item.id }}">{{ item.text }}</p>
+                                {#<img src="/media/theme/shkolkovo/lamp.png" alt="" class="abs lamp{{ item.id }}">#}
+                                <div class="abs lamp{{ item.id }}"></div>
+
+                                <div>
+                                    <div class="abs l{{ item.id }}"></div>
+                                    <div class="abs light_point{{ item.id }}"></div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        <div class="abs lamp7"></div>
+                        <div class="abs lamp8"></div>
+                        <div class="abs lamp9"></div>
+                        <div class="abs lamp10"></div>
+                    </div>
+                    {#<a>#}
+                        {#<div class="off_site">#}
+                            {#<p>Перейти на официальный сайт2</p>#}
+                        {#</div>#}
+                    {#</a>#}
+                    {#<div class="middle_text">#}
+                        {#<h1>ПОРТАЛ ОЦЕНКИ КАЧЕСТВА ШКОЛЬНЫХ УЧЕБНИКОВ</h1>#}
+                    {#</div>#}
+                    {#<div class="mouse">#}
+                        {#<img src="/media/theme/uchebnik/mouse.svg">#}
+                    {#</div>#}
+                </div>
+            </div>
+            <div class="obertka-mid">
+                <div class="content-mid">
+                    <div class="block-mid">
+                        <div class="block-mid-1 inlbl">
+                            <div class="block-mid-1_1">
+                                <p>Пробный тест</p>
+                                <p>Узнай свой уровень и начинай с него</p>
+                                <a href="#">
+                                    <p>Начать</p>
+                                </a>
+                            </div>
+                            <div class="block-mid-1_2">
+                                <p class="news-lent">Новостная лента</p>
+                                <a href="">
+                                    <div class="news-block">
+                                        <p>29.07.15</p>
+                                        <div>Действующие запреты приема в вузы, приостановления и </div>
+                                    </div>
+                                </a>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>действий лицензий и аккредитацийРособрнадзор выявил 274 вуза, не работающих с ФИдействий лицензий и аккредитацийРособрнадзор выявил 274 вуза, не работающих с ФИ 274 вуза, не работающих с ФИС ЕГЭ и приема</div>
+                                </div>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>Действующие запреты приема в вузы, </div>
+                                </div>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>Действующие запреты приема в вузы, приостановле</div>
+                                </div>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>Действующие запреты приема в вузы, приостановления и прекращения действий лицензий и аккредитацийРособрнадзор выявил 274 вуза, не работающих с ФИС ЕГЭ и приема</div>
+                                </div>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>Действующие запреты приема в вузы, </div>
+                                </div>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>Действующие запреты приема в вузы, приостановле</div>
+                                </div>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>Действующие запреты приема в вузы, приостановления и прекращения действий лицензий и аккредитацийРособрнадзор выявил 274 вуза, не работающих с ФИС ЕГЭ и приема</div>
+                                </div>
+                                <div class="news-block">
+                                    <p>29.07.15</p>
+                                    <div>Действующие запреты приема в вузы, приостановления и прекращения действий лицензий и аккредитацийРособрнадзор выявил 274 вуза, не работающих с ФИС ЕГЭ и приема</div>
+                                </div>
+                                <a href="#">
+                                    <p class="all-news">Смотреть все новости</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="block-mid-2 inlbl">
+                            <div class="block-mid-2_1">
+                                <div class="inlbl block-1">
+                                    <p>Задачи от экспертов</p>
+                                    <p>Лучшая профессорская выборка.</p>
+                                    <p>Список преподавателей</p>
+                                    <div class="Vwidget">
+                                        <a href="#" class="up"></a>
+                                        <div class="VjCarouselLite">
+                                            <ul>
+                                                <li>
+                                                    <div>
+                                                        <div class="expert-img img1">
+                                                            {#<img src="/media/theme/shkolkovo/pers.jpg" alt="">#}
+                                                        </div>
+                                                        Д. А. Василевский
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <div class="expert-img img2">
+                                                            <img src="" alt="">
+                                                        </div>
+                                                        у. е. заполярный
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <div class="expert-img img3">
+                                                            <img src="" alt="">
+                                                        </div>
+                                                        у. н. рогов
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <div class="expert-img img4">
+                                                            <img src="" alt="">
+                                                        </div>
+                                                        с. а. Власов
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <a href="#" class="down"></a>
+                                    </div>
+                                    <a href="#">
+                                        <p class="ozn_prep">Перейти</p>
+                                    </a>
+                                </div>
+                                <div class="inlbl block-2">
+                                    <p>Олимпиады</p>
+                                    <p>Подробное описание об олимпиадах</p>
+                                    <p>Победители олимпиад</p>
+                                    {#<div class="Vwidget2">#}
+                                        {#<a href="#" class="up"></a>#}
+                                        {#<div class="VjCarouselLite2">#}
+                                            {#<ul>#}
+                                                {#<li>#}
+                                                    {#<div>#}
+                                                        {#<div class="expert-img img1">#}
+                                                            {#&#123;&#35;<img src="/media/theme/shkolkovo/pers.jpg" alt="">&#35;&#125;#}
+                                                        {#</div>#}
+                                                        {#Д. А. Василевский#}
+                                                    {#</div>#}
+                                                {#</li>#}
+                                                {#<li>#}
+                                                    {#<div>#}
+                                                        {#<div class="expert-img img2">#}
+                                                            {#<img src="" alt="">#}
+                                                        {#</div>#}
+                                                        {#Карл Карлович#}
+                                                    {#</div>#}
+                                                {#</li>#}
+                                                {#<li>#}
+                                                    {#<div>#}
+                                                        {#<div class="expert-img img3">#}
+                                                            {#<img src="" alt="">#}
+                                                        {#</div>#}
+                                                        {#у. е. заполярный#}
+                                                    {#</div>#}
+                                                {#</li>#}
+                                                {#<li>#}
+                                                    {#<div>#}
+                                                        {#<div class="expert-img img4">#}
+                                                            {#<img src="" alt="">#}
+                                                        {#</div>#}
+                                                        {#у. н. рогов#}
+                                                    {#</div>#}
+                                                {#</li>#}
+                                            {#</ul>#}
+                                        {#</div>#}
+                                        {#<a href="#" class="down"></a>#}
+                                    {#</div>#}
+                                    <p style="font-family: PTSansRegular;font-size: 20px;margin: 98px auto;text-align: center;">Победителей пока нет!!! НО, СКОРО им можешь стать ТЫ!!!</p>
+                                    <a href="#">
+                                        <p class="ozn_prep">Перейти</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="block-mid-2_2">
+                                <div class="block-mid-2_1">
+                                    <div class="inlbl block-3">
+                                        <p class="katalogi">Каталоги</p>
+                                        <div class="katal">
+                                            <div style="background: url('/media/theme/shkolkovo/katalogi_bg.png') no-repeat center center" class="katalogi-1"></div>
+                                            <div class="katalogi-2">Сборник задач по высшей математике за 2014 г.</div>
+                                        </div>
+                                        <div class="katal">
+                                            <div style="background: url('/media/theme/shkolkovo/katalogi_bg.png') no-repeat center center" class="katalogi-1"></div>
+                                            <div class="katalogi-2">Сборник задач по высшей математике за 2014 г.</div>
+                                        </div>
+                                        <div class="katal">
+                                            <div style="background: url('/media/theme/shkolkovo/katalogi_bg.png') no-repeat center center" class="katalogi-1"></div>
+                                            <div class="katalogi-2">Сборник задач по высшей математике за 2014 г.</div>
+                                        </div>
+                                        <a href="#">
+                                            <p class="katalogi_btn">Перейти</p>
+                                        </a>
+                                    </div>
+                                    <div class="inlbl block-4">
+                                        <div class="block-4_1">
+                                            <p class="konstr">Конструктор</p>
+                                            <p class="konstr_1">Создайте свой тест из имеющихся заданий</p>
+                                            <a href="#">
+                                                <p class="konstr_btn">Перейти</p>
+                                            </a>
+                                        </div>
+                                        <div class="block-4_2">
+                                            <p class="lich_kab">Личный кабинет</p>
+                                            <p class="lich_kab_1">Войдите в личный кабинет и посмотрите статистику своих действий за последнюю неделю</p>
+                                            <a href="#">
+                                                <p class="lich_kab_btn">Перейти</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="obertka-bot">
+                <div class="content-bot">
+                    <div class="bg_bot">
+                        <div class="bot-1">
+                            <p class="bot-1-1">Рейтинг пользователей</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list">
+        <div class="wrap">
+
+        </div>
+
+    </div>
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends "layout/html.twig" %}
+{% block extrastyles %}
+    <link rel="stylesheet" type="text/css" href="{{ Url.media('media/css/news.css') }}" />
+{% endblock %}
+{% block content %}
+    <div class="item-list wrap">
+        <div class="div100">{% include 'layout/bread-crumbs.twig' %}</div>
+        <div class="div100"><h1>{{ "News"|i18n }}</h1></div>
+        <div id="news-left">
+            {% for item in news %}
+                <div class="news-item-block">
+                    <div class="news-block-date">{{ Date.ru_date(item.date, 'd F Y') }}</div>
+                    <div class="news-block-title"><a href="{{ Url.site('news/view/'~item.id) }}">{{ item.title }}</a></div>
+                    
+                    {% if item.picture.file_path is defined %}
+                        <div class="news-block-photo">
+                            <a href="{{ Url.site('news/view/'~item.id) }}">
+                                <img src="{{ Url.media('/images/w140-h105-cct-si/'~item.picture.file_path, TRUE) }}" alt="" />
+                            </a>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="news-block-brief{% if not item.picture.file_path is defined %} is-full{% endif %}">{{ item.desc }}</div>
+                </div>
+                
+                {% if loop.last %}
+                    <div class="news-block-last"></div>
+                {% else %}
+                    <div class="news-block-clear"></div>
+                {% endif %}
+            {% endfor %}
+            
+            {{ paginate|raw }}
+        </div>
+        
+        <div id="news-right">
+            <div id="short-news-block">
+                {% for item in publications %}
+                    <div class="short-news-date">{{ Date.ru_date(item.date, 'd F Y') }}</div>
+                    <div class="short-news-announce"><a href="{{ Url.site('publications/view/'~item.id) }}">{{ item.title }}</a><br>{{ item.desc }}</div>
+                    <div class="short-news-clear"></div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
