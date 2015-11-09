@@ -150,7 +150,7 @@ class __TwigTemplate_4983c8be933ac2e16a51aac2369d6c1f extends Twig_Template
                     <div class=\"block-mid\">
                         <div class=\"block-mid-1 inlbl\">
                             <div class=\"block-mid-1_1\">
-                                <p>Пробный тест</p>
+                                <p>БЫСТРЫЙ СТАРТ</p>
                                 <p>Узнай свой уровень и начинай с него</p>
                                 <a href=\"#\">
                                     <p>Начать</p>
